@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
-import ImageCard from "../components/ImageCard";
+import Images from "../components/Images";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,8 +11,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <ImageCard title="hi" description="test" date="today" />
+        <Images posts={posts} />
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch(
+    "https://api.nasa.gov/planetary/apod?api_key=H4bt2bZHw6FNdSgn7cEjwIiOcLUfHnh3dfS0RgKg&count=10"
+  );
+  const data = await res.json();
+
+  return {
+    props: {
+      posts: data,
+    },
+  };
 }
