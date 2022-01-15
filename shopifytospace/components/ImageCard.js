@@ -9,9 +9,11 @@ import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareIcon from "@mui/icons-material/Share";
+import Tooltip from "@mui/material/Tooltip";
 
 const ImageCard = ({ title, description, date, src }) => {
   const [isClick, setClick] = useState(false);
+
   return (
     <Card sx={{ mt: 2 }}>
       <CardMedia component="img" height="200" image={src} alt={title} />
@@ -27,15 +29,23 @@ const ImageCard = ({ title, description, date, src }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton
-          aria-label="add to favorites"
-          onClick={() => setClick(!isClick)}
+        <Tooltip
+          disableFocusListener
+          disableTouchListener
+          title={isClick ? "Unfavourite" : "Favourite"}
         >
-          {isClick ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+          <IconButton
+            aria-label="add to favorites"
+            onClick={() => setClick(!isClick)}
+          >
+            {isClick ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+        </Tooltip>
+        <Tooltip disableFocusListener disableTouchListener title="Share">
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </Card>
   );
