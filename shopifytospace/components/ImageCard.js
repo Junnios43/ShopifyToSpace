@@ -7,11 +7,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShareIcon from "@mui/icons-material/Share";
 
 const ImageCard = ({ title, description, date, src }) => {
   const [isClick, setClick] = useState(false);
   return (
-    <Card sx={{ maxWidth: 345, mt: 5 }}>
+    <Card sx={{ mt: 2 }}>
       <CardMedia component="img" height="200" image={src} alt={title} />
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
@@ -25,10 +27,15 @@ const ImageCard = ({ title, description, date, src }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton
+          aria-label="add to favorites"
+          onClick={() => setClick(!isClick)}
+        >
+          {isClick ? <FavoriteIcon /> : <FavoriteBorderIcon />}
         </IconButton>
-        <Button size="small">Share</Button>
+        <IconButton aria-label="share">
+          <ShareIcon />
+        </IconButton>
       </CardActions>
     </Card>
   );

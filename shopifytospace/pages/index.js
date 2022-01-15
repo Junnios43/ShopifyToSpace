@@ -1,17 +1,21 @@
 import Head from "next/head";
 import Images from "../components/Images";
-import styles from "../styles/Home.module.css";
 
 export default function Home({ posts }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>ShopifyToSpace!</title>
         <meta name="description" content="Make Commerce Better for Everyone" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       <main>
-        <Images posts={posts} />
+        <div className="bg-slate-800">
+          <h1 className="text-white mx-8">Shopify To Space 🚀 </h1>
+          <p className="text-white mx-8">By Jun</p>
+          <Images posts={posts} />
+        </div>
       </main>
     </div>
   );

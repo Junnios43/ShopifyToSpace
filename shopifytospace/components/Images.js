@@ -2,7 +2,7 @@ import ImageCard from "./ImageCard";
 
 const Images = ({ posts }) => {
   return (
-    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 gap-4 xl:grid-cols-4">
+    <div className="max-w-6xl mx-5 grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 gap-4 xl:grid-cols-4">
       {posts &&
         posts.map((post, index) => (
           <ImageCard
