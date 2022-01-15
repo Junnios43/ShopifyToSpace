@@ -11,12 +11,16 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShareIcon from "@mui/icons-material/Share";
 import Tooltip from "@mui/material/Tooltip";
 
-const ImageCard = ({ title, description, date, src }) => {
+const ImageCard = ({ title, description, date, src, mediatype }) => {
   const [isClick, setClick] = useState(false);
-
   return (
     <Card sx={{ mt: 2 }}>
-      <CardMedia component="img" height="200" image={src} alt={title} />
+      {mediatype && mediatype === "image" ? (
+        <CardMedia component="img" height="200" image={src} alt={title} />
+      ) : (
+        <CardMedia height="200" alt={title} component="iframe" image={src} />
+      )}
+
       <CardContent>
         <Typography gutterBottom variant="h6" component="div">
           {title}

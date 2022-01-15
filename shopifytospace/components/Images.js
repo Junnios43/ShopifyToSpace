@@ -11,6 +11,7 @@ const Images = ({ posts }) => {
             description={post.explanation}
             date={post.date}
             src={post.url}
+            mediatype={post.media_type}
           />
         ))}
     </div>
