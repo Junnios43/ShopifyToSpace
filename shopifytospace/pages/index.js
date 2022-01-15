@@ -23,7 +23,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const res = await fetch(
-    "https://api.nasa.gov/planetary/apod?api_key=H4bt2bZHw6FNdSgn7cEjwIiOcLUfHnh3dfS0RgKg&count=10"
+    "https://api.nasa.gov/planetary/apod?api_key=H4bt2bZHw6FNdSgn7cEjwIiOcLUfHnh3dfS0RgKg&count=12"
   );
   const data = await res.json();
 
